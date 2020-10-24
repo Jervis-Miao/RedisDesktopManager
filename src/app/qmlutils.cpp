@@ -35,6 +35,15 @@ long QmlUtils::binaryStringLength(const QVariant &value) {
   return val.size();
 }
 
+QVariant QmlUtils::b64toByteArray(const QVariant &value)
+{
+    if (!value.canConvert(QVariant::String)) {
+      return -1;
+    }
+
+    return QVariant(QByteArray::fromBase64(value.toString().toUtf8()));
+}
+
 QVariant QmlUtils::decompress(const QVariant &value) {
   if (!value.canConvert(QVariant::ByteArray)) {
     return 0;
@@ -256,5 +265,14 @@ QString QmlUtils::htmlToPlainText(const QString &html) {
 }
 
 double QmlUtils::getScreenScaleFactor() {
-  return QApplication::primaryScreen()->logicalDotsPerInch() / 96;
+    return QApplication::primaryScreen()->logicalDotsPerInch() / 96;
+}
+
+bool QmlUtils::isAppStoreBuild()
+{
+#ifdef RDM_APPSTORE
+    return true;
+#else
+    return false;
+#endif
 }

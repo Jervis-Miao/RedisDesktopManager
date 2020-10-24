@@ -17,10 +17,10 @@ Item
     property bool showToolBar: false
     property bool showSaveBtn: false
     property bool showFormatters: true
+    property bool showOnlyRWformatters: false
     property string fieldLabel: qsTranslate("RDM","Value") + ":"
     property bool isEdited: false
-    property var value
-    property int valueSizeLimit: 150000
+    property var value    
     property int valueCompression: 0
     property string formatterSettingsCategory: "formatters_value"
     property alias readOnly: textView.readOnly
@@ -91,31 +91,29 @@ Item
     }
 
     function loadRawValue(callback) {
-        if (formatterSelector.visible) {
+        function process(formattedValue) {
+            var formatter = valueFormattersModel.get(formatterSelector.currentIndex)
 
-            function process(formattedValue) {
-                var formatter = formatterSelector.model.get(formatterSelector.currentIndex)
+             formatter.getRaw(formattedValue, function (error, raw) {
+                 if (formatter.type === "external") {
+                    root.value = compress(qmlUtils.b64toByteArray(raw))
+                 } else {
+                    root.value = compress(raw)
+                 }
+                 return callback(error, root.value)
+             })
+        }
 
-                 formatter.getRaw(formattedValue, function (error, raw) {
-                     root.value = compress(raw)
-                     return callback(error, compress(raw))
-                 })
-            }
+        if (textView.format === "json") {
+            formatterSelector.model.getJSONFormatter().getRaw(textView.model.getText(), function (jsonError, plainText) {
+                if (jsonError) {
+                    return callback(jsonError, "")
+                }
 
-            if (textView.format === "json") {
-                formatterSelector.model.getJSONFormatter().getRaw(textView.model.getText(), function (jsonError, plainText) {
-                    if (jsonError) {
-                        return callback(jsonError, "")
-                    }
-
-                    process(plainText)
-                })
-            } else {
-                process(textView.model.getText())
-            }
+                process(plainText)
+            })
         } else {
-            root.value = compress(textView.model.getText())
-            return callback("", root.value)
+            process(textView.model.getText())
         }
     }
 
@@ -140,7 +138,7 @@ Item
         var isBin = qmlUtils.isBinaryString(root.value)
         binaryFlag.visible = isBin
 
-        if (qmlUtils.binaryStringLength(root.value) > valueSizeLimit) {
+        if (qmlUtils.binaryStringLength(root.value) > appSettings.valueSizeLimit) {
             root.showFormatters = false
             formatterSelector.currentIndex = formatterSelector.model.getDefaultFormatter(isBin)
             guessFormatter = false
@@ -164,7 +162,7 @@ Item
             _loadFormatter(isBin)
         }
 
-        if (isBin && qmlUtils.binaryStringLength(root.value) > valueSizeLimit) {
+        if (isBin && qmlUtils.binaryStringLength(root.value) > appSettings.valueSizeLimit) {
             largeValueDialog.visible = true
         } else {
             largeValueDialog.visible = false
@@ -321,7 +319,12 @@ Item
                 color: "#ccc"
             }
             BetterLabel { id: binaryFlag; text: qsTranslate("RDM","[Binary]"); visible: false; color: "green"; }
-            BetterLabel { text: qsTranslate("RDM"," [Compressed: ") + qmlUtils.compressionAlgName(root.valueCompression) + "]"; visible: root.valueCompression > 0; color: "red"; }
+            BetterLabel {
+                objectName: "rdm_value_editor_compressed_value_label"
+                text: qsTranslate("RDM"," [Compressed: ") + qmlUtils.compressionAlgName(root.valueCompression) + "]";
+                visible: root.valueCompression > 0;
+                color: "red";
+            }
             Item { Layout.fillWidth: true }
 
             BetterLabel { visible: showFormatters; text: qsTranslate("RDM","View as:") }
@@ -334,7 +337,7 @@ Item
 
             BetterComboBox {
                 id: formatterSelector
-                visible: showFormatters
+                visible: showFormatters && !showOnlyRWformatters
                 width: 200
                 model: valueFormattersModel
                 textRole: "name"
@@ -346,8 +349,21 @@ Item
                 }
             }
 
+            BetterComboBox {
+                id: rwFormatterSelector
+                visible: showFormatters && showOnlyRWformatters
+                width: 200
+                model: valueFormattersModel.rwFormatters
+                textRole: "name"
+                objectName: "rdm_value_editor_rw_formatter_combobox"
+
+                onActivated: {
+                    formatterSelector.currentIndex = valueFormattersModel.getFormatterIndex(currentText);
+                }
+            }
+
             BetterLabel {
-                visible: !showFormatters && qmlUtils.binaryStringLength(root.value) > valueSizeLimit
+                visible: !showFormatters && qmlUtils.binaryStringLength(root.value) > appSettings.valueSizeLimit
                 text: qsTranslate("RDM","Large value (>150kB). Formatters are not available.")
                 color: "red"
             }
@@ -395,10 +411,9 @@ Item
 
                         onClicked: copyValue()
 
-                        function copyValue() {
-                            console.log(textView.model)
-                            if (textView.model) {
-                                qmlUtils.copyToClipboard(textView.model.getText())
+                        function copyValue() {                            
+                            if (value) {
+                                qmlUtils.copyToClipboard(value)
                             }
                         }
                     }
@@ -427,7 +442,7 @@ Item
 
                     text: qsTranslate("RDM","Save")
                     tooltip: qsTranslate("RDM","Save Changes") + " (" + shortcutText + ")"
-                    enabled: root.value !== "" && valueEditor.item.isEdited() && keyType != "stream"
+                    enabled: !showOnlyRWformatters && root.value !== "" && valueEditor.item.isEdited() && keyType != "stream"
                     visible: showSaveBtn
 
                     property string shortcutText: ""
@@ -444,6 +459,7 @@ Item
                                 return;
 
                             var value = valueEditor.item.getValue()
+
                             saveBtnTimer.start()
                             keyTab.keyModel.updateRow(valueEditor.currentRow, value)
                         })
@@ -512,7 +528,7 @@ Item
                 ScrollBar.vertical.policy: ScrollBar.AlwaysOn
                 ScrollBar.vertical.minimumSize: 0.05
 
-                enabled: !(qmlUtils.isBinaryString(root.value) && qmlUtils.binaryStringLength(root.value) > valueSizeLimit)
+                enabled: !(qmlUtils.isBinaryString(root.value) && qmlUtils.binaryStringLength(root.value) > appSettings.valueSizeLimit)
 
                 ListView {
                     id: textView
@@ -534,7 +550,7 @@ Item
                                 objectName: "rdm_key_multiline_text_field_" + index
 
                                 enabled: root.enabled
-                                text: qmlUtils.isBinaryString(root.value) && qmlUtils.binaryStringLength(root.value) > valueSizeLimit ?
+                                text: qmlUtils.isBinaryString(root.value) && qmlUtils.binaryStringLength(root.value) > appSettings.valueSizeLimit ?
                                           qmlUtils.printable(value, false, 50000) : value;  // Show first 50KB to fit chunkSize
 
                                 textFormat: textView.textFormat

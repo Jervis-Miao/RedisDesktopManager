@@ -48,19 +48,26 @@ QJsonObject ValueEditor::ExternalFormattersManager::readJsonFromExternalProcess(
 
   auto result = readOutputFromExternalProcess(cmd, processInput, wd);
 
-  if (result.second.size() > 0)
-    emit error(
-        QString("%2: %1").arg(QString::fromLocal8Bit(result.second)).arg(wd));
+  QJsonObject obj;
 
-  if (result.first.isEmpty()) return QJsonObject();
+  if (result.second.size() > 0) {
+    auto err =
+        QString("%2: %1").arg(QString::fromLocal8Bit(result.second)).arg(wd);
+    obj["error"] = err;
+    emit error(err);
+  }
+
+  if (result.first.isEmpty()) return obj;
 
   QJsonParseError err;
   QJsonDocument output = QJsonDocument::fromJson(result.first, &err);
 
   if (err.error != QJsonParseError::NoError || !output.isObject()) {
-    emit error(QString("Formatter returned invalid json: %1")
-                   .arg(QString::fromLocal8Bit(result.first)));
-    return QJsonObject();
+    auto err = QString("Formatter returned invalid json: %1")
+                   .arg(QString::fromLocal8Bit(result.first));
+    emit error(err);
+    obj["error"] = err;
+    return obj;
   }
 
   return output.object();
@@ -115,6 +122,12 @@ void ValueEditor::ExternalFormattersManager::loadFormatters() {
       data["cmd"] = fullCmd.join(" ");
       data["cmd_list"] = fullCmd;
       data["cwd"] = it.filePath();
+
+      if (outputObj.contains("read-only")) {
+        data["read_only"] = outputObj["read-only"].toBool();
+      } else {
+        data["read_only"] = true;
+      }
 
       m_formattersData.append(data);
       usageFile.close();
@@ -191,7 +204,6 @@ void ValueEditor::ExternalFormattersManager::decode(
         QJSValueList{QCoreApplication::translate(
                          "RDM", "Cannot decode value using %1 formatter. ")
                          .arg(formatterName)});
-
     return;
   }
 
@@ -254,12 +266,16 @@ void ValueEditor::ExternalFormattersManager::encode(
   }
 
   if (jsCallback.isCallable()) {
-    jsCallback.call(QJSValueList{result["output"].toString()});
+    jsCallback.call(QJSValueList{result["error"].toString(), result["output"].toString()});
   }
 }
 
-QStringList ValueEditor::ExternalFormattersManager::getPlainList() {
-  return m_mapping.keys();
+QVariantList ValueEditor::ExternalFormattersManager::getPlainList() {
+    QList<QVariant> r;
+    foreach (QVariantMap v, m_formattersData) {
+        r.append(v);
+    }
+    return r;
 }
 
 QString ValueEditor::ExternalFormattersManager::formattersPath() {

@@ -1,15 +1,16 @@
 import QtQuick 2.3
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.13
-import QtQuick.Dialogs 1.2
 import QtQuick.Window 2.3
 import "./common"
 import "./common/platformutils.js" as PlatformUtils
 
-Dialog {
+BetterDialog {
     id: root
     objectName: "rdm_quick_start_dialog"
-    title: qsTranslate("RDM","Explore Redis Desktop Manager")
+    title: qsTranslate("RDM","Explore RDM")
+
+    footer: null
 
     contentItem: Rectangle {
         id: rootItem
@@ -41,8 +42,8 @@ Dialog {
                     RichTextWithLinks {
                         Layout.fillWidth: true
                         wrapMode: Text.WrapAnywhere
-                        html: "<p style='font-size: 13pt;'>" + qsTranslate("RDM","Before using Redis Desktop Manager (RDM) take a look on the %1").arg(
-                                  "<a href='http://docs.redisdesktop.com/en/latest/quick-start/'>" + qsTranslate("RDM","Quick Start Guide")+ "</a>") + "</p>"
+                        html: "<p style='font-size: 13pt;'>" + qsTranslate("RDM","Before using RDM take a look on the %1").arg(
+                                  "<a href='http://docs.rdm.dev/en/latest/quick-start/'>" + qsTranslate("RDM","Quick Start Guide")+ "</a>") + "</p>"
 
                         Component.onCompleted: {
                             if (!PlatformUtils.isOSX()) {

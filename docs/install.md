@@ -3,18 +3,18 @@
 ## Windows
 
 1. Install [Microsoft Visual C++ 2015-2019 x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)  (If you have not already).
-2. Download Windows Installer from [http://redisdesktop.com/download](http://redisdesktop.com/download). **(Requires subscription)**
+2. Download Windows Installer from [http://rdm.dev/download](http://rdm.dev/download). **(Requires subscription)**
 3. Run the downloaded installer.
 
 ## Mac OS X
 
-1. Download dmg image from [http://redisdesktop.com/download](http://redisdesktop.com/download). **(Requires subscription)**
+1. Download dmg image from [http://rdm.dev/download](http://rdm.dev/download). **(Requires subscription)**
 2. Mount the DMG image.
 3. Run rdm.app.
 
 ## Ubuntu / ArchLinux / Debian / Fedora / CentOS / OpenSUSE / etc
 
-1. Install RedisDesktopManager using [Snapcraft](https://snapcraft.io/redis-desktop-manager).
+1. Install RDM using [Snapcraft](https://snapcraft.io/redis-desktop-manager).
 
 > !!! warning "SSH Keys"
     To be able to access your ssh keys from RDM please connect `ssh-key` interface:
@@ -46,18 +46,18 @@
 3. Copy `cd ./src && cp ./resources/Info.plist.sample ./resources/Info.plist`.
 4. Building RDM dependencies require i.a. `openssl`, `cmake` and `python3`. Install them: `brew install openssl cmake python3`
 5. Install Python requirements `pip3 install -t ../bin/osx/release -r py/requirements.txt`
-6. Install [Qt 5.13](http://www.qt.io/download-open-source/#section-2). Add Qt Creator and under Qt 5.13.x add Qt Charts module.
+6. Install [Qt 5.15](http://www.qt.io/download-open-source/#section-2). Add Qt Creator and under Qt 5.15.x add Qt Charts module.
 7. Open `./src/rdm.pro` in **Qt Creator**.
 8. Run build. 
 
 ### Build on Windows
 
-1. Install [Visual Studio 2017 Community Edition](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2017-relnotes).
-2. Install [Qt 5.13](https://www.qt.io/download).
+1. Install [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/vs/).
+2. Install [Qt 5.15](https://www.qt.io/download).
 3. Go to `3rdparty/qredisclient/3rdparty/hiredis` and apply the patch to fix compilation on Windows:
 `git apply ../hiredis-win.patch`
 4. Go to the `3rdparty/` folder and install zlib with `nuget`: `nuget install zlib-msvc14-x64 -Version 1.2.11.7795`
 5. Install Python 3.7 amd64 to `C:\Python37-x64`.
 6. Install Python requirements `pip3 install -r src/py/requirements.txt`.
-7. Open `./src/rdm.pro` in **Qt Creator**.  Choose the `Desktop Qt 5.13.x MSVC2017 64bit > Release` build profile.
+7. Open `./src/rdm.pro` in **Qt Creator**.  Choose the `Desktop Qt 5.15.x MSVC2019 64bit > Release` build profile.
 8. Run build. (Just hit `Ctrl-B`)

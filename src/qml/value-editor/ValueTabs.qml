@@ -232,6 +232,27 @@ Repeater {
                                     Layout.fillWidth: true;
                                     objectName: "rdm_set_ttl_key_field"
                                     inputMethodHints: Qt.ImhDigitsOnly
+                                    validator: IntValidator{bottom: 1}
+                                }
+                            }
+
+                            footer: BetterDialogButtonBox {
+                                BetterButton {
+                                    text: qsTranslate("RDM","Save")
+                                    DialogButtonBox.buttonRole: DialogButtonBox.AcceptRole
+                                }
+
+                                BetterButton {
+                                    text: qsTranslate("RDM","Persist key")
+                                    onClicked: {
+                                        keyTab.keyModel.persistKey()
+                                        setTTLConfirmation.close()
+                                    }
+                                }
+
+                                BetterButton {
+                                    text: qsTranslate("RDM","Cancel")
+                                    onClicked: setTTLConfirmation.close()
                                 }
                             }
 
@@ -247,7 +268,12 @@ Repeater {
                         }
 
                         onClicked: {
-                            newTTL.text = ""+keyTtl
+                            if (keyTtl > 0) {
+                                newTTL.text = ""+keyTtl
+                            } else {
+                                newTTL.text = ""
+                            }
+
                             setTTLConfirmation.open()
                         }
                     }
@@ -360,14 +386,18 @@ Repeater {
                                 Layout.minimumHeight: 100
 
                                 ScrollView {
+                                    id: tableScrollView
                                     anchors.fill: parent
 
                                     ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-                                    ScrollBar.vertical.policy: ScrollBar.AlwaysOn
+                                    ScrollBar.vertical.policy: ScrollBar.AlwaysOn                                    
+
 
                                     TableView {
                                         id: table
                                         objectName: "rdm_value_tab_table"
+
+                                        focus: true
 
                                         width: parent.width
                                         onWidthChanged: forceLayout()
@@ -400,7 +430,10 @@ Repeater {
                                                     implicitHeight: 30
                                                     text: Number(row) + 1
                                                     selected: table.currentRow === row
-                                                    onClicked: table.currentRow = row
+                                                    onClicked: {
+                                                        table.currentRow = row
+                                                        table.forceActiveFocus()
+                                                    }
                                                 }
                                             }
 
@@ -413,7 +446,10 @@ Repeater {
                                                     implicitHeight: 30
                                                     text: renderText(display)
                                                     selected: table.currentRow === row
-                                                    onClicked: table.currentRow = row
+                                                    onClicked: {
+                                                        table.currentRow = row
+                                                        table.forceActiveFocus()
+                                                    }
                                                 }
                                             }
 
@@ -426,15 +462,18 @@ Repeater {
                                                     implicitHeight: 30
 
                                                     selected: table.currentRow === row
-                                                    onClicked: table.currentRow = row
+                                                    onClicked: {
+                                                        table.currentRow = row
+                                                        table.forceActiveFocus()
+                                                    }
 
                                                     text: {
                                                         if (display === "" || !isMultiRow) {
                                                             return ""
                                                         }
 
-                                                        if (keyType == "zset") {
-                                                            return parseFloat(Number(display).toFixed(20))
+                                                        if (keyType == "zset") {                                                            
+                                                            return Number(display)
                                                         }
 
                                                         return renderText(display)
@@ -549,7 +588,7 @@ Repeater {
                                                 valueEditor.loadRowValue(currentRow)
                                             }
                                         }
-                                    }
+                                    }                                    
                                 }
                             }
                         }

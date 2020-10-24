@@ -28,7 +28,7 @@ AbstractEditor {
         enabled: root.active || root.state !== "edit"
 
         placeholderText: qsTranslate("RDM","Score")
-        validator: DoubleValidator { locale: "C"; notation: DoubleValidator.StandardNotation } // force point as decimal separator
+        validator: DoubleValidator { locale: "C"; } // force point as decimal separator
         objectName: "rdm_key_zset_score_field"
 
         property bool isEdited: false
@@ -38,7 +38,7 @@ AbstractEditor {
         }
 
         function setValue(v) {
-            text = parseFloat(Number(v).toFixed(20))
+            text = Number(v)
             scoreText.isEdited = false
         }
 

@@ -71,9 +71,20 @@ void NamespaceItem::load() {
       return;
   }
 
-  QString nsFilter = QString("%1%2*")
-                         .arg(QString::fromUtf8(m_fullPath))
-                         .arg(m_operations->getNamespaceSeparator());
+  QString nsFilter =  QString("%1%2*")
+      .arg(QString::fromUtf8(m_fullPath))
+      .arg(m_operations->getNamespaceSeparator());
+
+  if (!m_filter.isEmpty()) {
+    if (m_filter.pattern().startsWith(nsFilter.chopped(1))) {
+      nsFilter = m_filter.pattern();
+    } else {
+      nsFilter = QString("%1%2%3")
+          .arg(QString::fromUtf8(m_fullPath))
+          .arg(m_operations->getNamespaceSeparator())
+          .arg(m_filter.pattern());
+    }
+  }
 
   m_operations->loadNamespaceItems(
       qSharedPointerDynamicCast<AbstractNamespaceItem>(getSelf()), nsFilter,

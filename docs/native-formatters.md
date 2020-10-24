@@ -1,8 +1,7 @@
 ## Native value formatters
 
 > !!! warning "macOS"
-    This feature is not available in the Apple AppStore version due to sandboxing restrictions. 
-    DMG version supports it only if binary was launched from terminal.    
+    This feature is not available in the Apple AppStore version due to sandboxing restrictions.    
 
 Native value formatters are scripts or executables developed in different programming languages which allow
  to display in readable form the key values of various formats inside the RDM value editor. You can easily implement any formatter for your own purposes as well. 
@@ -24,32 +23,26 @@ For example for python script it will be: `['python', 'my_super_formatter.py']`
 #### Formatter info:
 
 CMD: `<executable> info`
+
 STDOUT (json):
 
 ```
 {
     "version": "1.0.0",
-    "description": "Formatter description"
+    "description": "Formatter description",
+    "read-only": true
 }
 ```
-#### Validate: 
-
-CMD: `<executable> validate`
-STDIN: `<binary-data-encoded-with-base64>`
-STDOUT (json): 
-
-```
-{    
-    “valid”: “false”,    
-    “error”: “input is not gziped data” // if valid is false
-}
-```
+If `read-only` property is absent - `true` is used as default value for this property.
+If `read-only` property is `false` - formatter will be showed in `Add New Key` and `Add Row` dialogs.
 
 
 #### Decode binary data:  
 
 CMD: `<executable> decode`
+
 STDIN: `<binary-data-encoded-with-base64>`
+
 STDOUT (json): 
 
 ```
@@ -60,10 +53,12 @@ STDOUT (json):
 }
 ```
 #### Encode string-representation 
-**Required only for formatters which return `“read-only”: false` in `decode` method**
+**Required only for formatters which return `“read-only”: true`**
 
 CMD: `<executable> encode`
+
 STDIN : `<edited-string-representation-encoded-with-base64>`
+
 STDOUT (json): 
 ```
 {

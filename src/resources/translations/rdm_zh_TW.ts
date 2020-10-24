@@ -143,7 +143,7 @@
 <context>
     <name>GlobalSettings</name>
     <message>
-        <location filename="../../qml/GlobalSettings.qml" line="240"/>
+        <location filename="../../qml/GlobalSettings.qml" line="256"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -176,9 +176,9 @@
         <translation>RDM 無法儲存設定檔。請更改檔寫入權限或者以管理員模式啟動 RDM。</translation>
     </message>
     <message>
-        <location filename="../../app/app.cpp" line="350"/>
-        <source>Please download new version of Redis Desktop Manager: %1</source>
-        <translation>請下載新版本的 Redis Desktop Manager: %1</translation>
+        <location filename="../../app/app.cpp" line="354"/>
+        <source>Please download new version of RDM: %1</source>
+        <translation>請下載新版本的 RDM: %1</translation>
     </message>
     <message>
         <source>Key with new name already exist in database or original key was removed</source>
@@ -194,12 +194,17 @@
         <translation>鍵名 %1 已經存在或是原鍵已被移除</translation>
     </message>
     <message>
-        <location filename="../../app/models/key-models/abstractkey.h" line="131"/>
+        <location filename="../../app/models/key-models/abstractkey.h" line="115"/>
+        <source>Cannot persist key &apos;%1&apos;. &lt;br&gt; Key does not exist or does not have an associated timeout</source>
+        <translation>無法將鍵持久化 &apos;%1&apos; &lt;br&gt; 鍵不存在或是不會逾時</translation>
+    </message>
+    <message>
+        <location filename="../../app/models/key-models/abstractkey.h" line="150"/>
         <source>Cannot parse scan response</source>
         <translation>無法解析 scan 的結果</translation>
     </message>
     <message>
-        <location filename="../../app/models/key-models/abstractkey.h" line="291"/>
+        <location filename="../../app/models/key-models/abstractkey.h" line="310"/>
         <source>Server returned unexpected response: </source>
         <translation>伺服器返回未預期的回應: </translation>
     </message>
@@ -221,8 +226,8 @@
         <translation type="vanished">無法載入鍵 %1 的總行數: %2</translation>
     </message>
     <message>
-        <location filename="../../app/models/key-models/abstractkey.h" line="237"/>
-        <location filename="../../app/models/key-models/abstractkey.h" line="248"/>
+        <location filename="../../app/models/key-models/abstractkey.h" line="256"/>
+        <location filename="../../app/models/key-models/abstractkey.h" line="267"/>
         <source>Cannot load rows for key %1: %2</source>
         <translation>無法載入鍵 %1 的行: %2</translation>
     </message>
@@ -241,11 +246,11 @@
         <translation>無效行</translation>
     </message>
     <message>
-        <location filename="../../app/models/key-models/abstractkey.h" line="155"/>
-        <location filename="../../app/models/key-models/abstractkey.h" line="303"/>
+        <location filename="../../app/models/key-models/abstractkey.h" line="174"/>
+        <location filename="../../app/models/key-models/abstractkey.h" line="322"/>
         <location filename="../../app/models/treeoperations.cpp" line="65"/>
         <location filename="../../app/models/treeoperations.cpp" line="112"/>
-        <location filename="../../modules/console/consolemodel.cpp" line="88"/>
+        <location filename="../../modules/console/consolemodel.cpp" line="89"/>
         <source>Connection error: </source>
         <translation>連線錯誤: </translation>
     </message>
@@ -300,8 +305,8 @@
     </message>
     <message>
         <location filename="../../app/models/treeoperations.cpp" line="100"/>
-        <source>Open Source version of Redis Desktop Manager &lt;b&gt;doesn&apos;t support SSH tunneling&lt;/b&gt;.&lt;br /&gt;&lt;br /&gt; To get fully-featured application, please buy subscription on &lt;a href=&apos;https://redisdesktop.com/subscriptions&apos;&gt;redisdesktop.com&lt;/a&gt;. &lt;br/&gt;&lt;br /&gt;Every single subscription gives us funds to continue the development process and provide support to our users. &lt;br /&gt;If you have any questions please feel free to contact us at &lt;a href=&apos;mailto:support@redisdesktop.com&apos;&gt;support@redisdesktop.com&lt;/a&gt; or join &lt;a href=&apos;https://t.me/RedisDesktopManager&apos;&gt;Telegram chat&lt;/a&gt;.</source>
-        <translation>開源版本的 Redis Desktop Manager &lt;b&gt;不支援 SSH 隧道功能&lt;/b&gt;。&lt;br /&gt;&lt;br /&gt;若要取得完整功能的程式，請在 &lt;a href=&apos;https://redisdesktop.com/subscriptions&apos;&gt;redisdesktop.com&lt;/a&gt; 上購買訂閱。&lt;br/&gt;&lt;br /&gt;每個訂閱都是我們繼續開發以及支援使用者的原動力。&lt;br /&gt;如果你有任何問題，請聯絡 &lt;a href=&apos;mailto:support@redisdesktop.com&apos;&gt;support@redisdesktop.com&lt;/a&gt; 或是加入 &lt;a href=&apos;https://t.me/RedisDesktopManager&apos;&gt;Telegram 聊天群組&lt;/a&gt;。</translation>
+        <source>Open Source version of RDM &lt;b&gt;doesn&apos;t support SSH tunneling&lt;/b&gt;.&lt;br /&gt;&lt;br /&gt; To get fully-featured application, please buy subscription on &lt;a href=&apos;https://rdm.dev/subscriptions&apos;&gt;rdm.dev&lt;/a&gt;. &lt;br/&gt;&lt;br /&gt;Every single subscription gives us funds to continue the development process and provide support to our users. &lt;br /&gt;If you have any questions please feel free to contact us at &lt;a href=&apos;mailto:support@rdm.dev&apos;&gt;support@rdm.dev&lt;/a&gt; or join &lt;a href=&apos;https://t.me/RedisDesktopManager&apos;&gt;Telegram chat&lt;/a&gt;.</source>
+        <translation>開源版本的 RDM &lt;b&gt;不支援 SSH 隧道功能&lt;/b&gt;。&lt;br /&gt;&lt;br /&gt;若要取得完整功能的程式，請在 &lt;a href=&apos;https://rdm.dev/subscriptions&apos;&gt;rdm.dev&lt;/a&gt; 上購買訂閱。&lt;br/&gt;&lt;br /&gt;每個訂閱都是我們繼續開發以及支援使用者的原動力。&lt;br /&gt;如果你有任何問題，請聯絡 &lt;a href=&apos;mailto:support@rdm.dev&apos;&gt;support@rdm.dev&lt;/a&gt; 或是加入 &lt;a href=&apos;https://t.me/RedisDesktopManager&apos;&gt;Telegram 聊天群組&lt;/a&gt;。</translation>
     </message>
     <message>
         <location filename="../../app/models/treeoperations.cpp" line="167"/>
@@ -336,7 +341,7 @@
         <translation type="vanished">批次操作錯誤: %1</translation>
     </message>
     <message>
-        <location filename="../../modules/common/tabmodel.cpp" line="39"/>
+        <location filename="../../modules/common/tabmodel.cpp" line="43"/>
         <source>Invalid Connection. Check connection settings.</source>
         <translation>無效連線，請檢查連線設定。</translation>
     </message>
@@ -347,7 +352,7 @@
     </message>
     <message>
         <location filename="../../modules/connections-tree/items/databaseitem.cpp" line="242"/>
-        <location filename="../../modules/connections-tree/items/namespaceitem.cpp" line="125"/>
+        <location filename="../../modules/connections-tree/items/namespaceitem.cpp" line="136"/>
         <source>Key was added</source>
         <translation>已經插入鍵</translation>
     </message>
@@ -401,9 +406,9 @@
         <translation>新名稱:</translation>
     </message>
     <message>
-        <location filename="../../qml/value-editor/Pagination.qml" line="28"/>
+        <location filename="../../qml/value-editor/Pagination.qml" line="30"/>
         <location filename="../../qml/value-editor/ValueTabs.qml" line="209"/>
-        <location filename="../../qml/value-editor/editors/MultilineEditor.qml" line="318"/>
+        <location filename="../../qml/value-editor/editors/MultilineEditor.qml" line="316"/>
         <source>Size: </source>
         <translation>大小: </translation>
     </message>
@@ -423,13 +428,13 @@
         <translation>新的 TTL:</translation>
     </message>
     <message>
-        <location filename="../../qml/value-editor/ValueTabs.qml" line="258"/>
+        <location filename="../../qml/value-editor/ValueTabs.qml" line="284"/>
         <source>Delete</source>
         <translation>刪除</translation>
     </message>
     <message>
         <location filename="../../qml/connections-tree/menu/key.qml" line="22"/>
-        <location filename="../../qml/value-editor/ValueTabs.qml" line="263"/>
+        <location filename="../../qml/value-editor/ValueTabs.qml" line="289"/>
         <source>Delete key</source>
         <translation>刪除鍵</translation>
     </message>
@@ -444,57 +449,62 @@
         <translation>要不儲存變更就關閉頁籤嗎？</translation>
     </message>
     <message>
-        <location filename="../../qml/value-editor/ValueTabs.qml" line="264"/>
+        <location filename="../../qml/value-editor/ValueTabs.qml" line="246"/>
+        <source>Persist key</source>
+        <translation>將鍵持久化</translation>
+    </message>
+    <message>
+        <location filename="../../qml/value-editor/ValueTabs.qml" line="290"/>
         <location filename="../../modules/connections-tree/items/keyitem.cpp" line="130"/>
         <source>Do you really want to delete this key?</source>
         <translation>確定要刪除該鍵？</translation>
     </message>
     <message>
-        <location filename="../../qml/value-editor/ValueTabs.qml" line="278"/>
-        <location filename="../../qml/value-editor/ValueTabs.qml" line="685"/>
+        <location filename="../../qml/value-editor/ValueTabs.qml" line="304"/>
+        <location filename="../../qml/value-editor/ValueTabs.qml" line="724"/>
         <source>Reload Value</source>
         <translation>重新載入鍵值</translation>
     </message>
     <message>
-        <location filename="../../qml/value-editor/ValueTabs.qml" line="567"/>
-        <location filename="../../qml/value-editor/ValueTabs.qml" line="576"/>
+        <location filename="../../qml/value-editor/ValueTabs.qml" line="606"/>
+        <location filename="../../qml/value-editor/ValueTabs.qml" line="615"/>
         <source>Add Row</source>
         <translation>插入行</translation>
     </message>
     <message>
-        <location filename="../../qml/value-editor/ValueTabs.qml" line="575"/>
-        <location filename="../../qml/value-editor/editors/MultilineEditor.qml" line="375"/>
+        <location filename="../../qml/value-editor/ValueTabs.qml" line="614"/>
+        <location filename="../../qml/value-editor/editors/MultilineEditor.qml" line="391"/>
         <source>Add Element to HLL</source>
         <translation>新增元素到 HHL</translation>
     </message>
     <message>
-        <location filename="../../qml/value-editor/ValueTabs.qml" line="613"/>
+        <location filename="../../qml/value-editor/ValueTabs.qml" line="652"/>
         <source>Add</source>
         <translation>新增</translation>
     </message>
     <message>
-        <location filename="../../qml/value-editor/ValueTabs.qml" line="648"/>
-        <location filename="../../qml/value-editor/ValueTabs.qml" line="667"/>
+        <location filename="../../qml/value-editor/ValueTabs.qml" line="687"/>
+        <location filename="../../qml/value-editor/ValueTabs.qml" line="706"/>
         <source>Delete row</source>
         <translation>刪除行</translation>
     </message>
     <message>
-        <location filename="../../qml/value-editor/ValueTabs.qml" line="654"/>
+        <location filename="../../qml/value-editor/ValueTabs.qml" line="693"/>
         <source>The row is the last one in the key. After removing it key will be deleted.</source>
         <translation>此行資料是該鍵最後一行。刪除此行資料，該鍵將會被刪除。</translation>
     </message>
     <message>
-        <location filename="../../qml/value-editor/ValueTabs.qml" line="656"/>
+        <location filename="../../qml/value-editor/ValueTabs.qml" line="695"/>
         <source>Do you really want to remove this row?</source>
         <translation>確定要刪除該行資料嗎？</translation>
     </message>
     <message>
-        <location filename="../../qml/value-editor/ValueTabs.qml" line="717"/>
+        <location filename="../../qml/value-editor/ValueTabs.qml" line="756"/>
         <source>Search on page...</source>
         <translation>頁面搜尋...</translation>
     </message>
     <message>
-        <location filename="../../qml/value-editor/ValueTabs.qml" line="744"/>
+        <location filename="../../qml/value-editor/ValueTabs.qml" line="783"/>
         <source>Full Search</source>
         <translation>全文搜尋</translation>
     </message>
@@ -547,12 +557,12 @@
 </translation>
     </message>
     <message>
-        <location filename="../../modules/console/consolemodel.cpp" line="64"/>
+        <location filename="../../modules/console/consolemodel.cpp" line="65"/>
         <source>Switch to Pub/Sub mode. Close console tab to stop listen for messages.</source>
         <translation>切斷到 發布/訂閱 模式。關閉控制台以停止監聽訊息。</translation>
     </message>
     <message>
-        <location filename="../../modules/console/consolemodel.cpp" line="73"/>
+        <location filename="../../modules/console/consolemodel.cpp" line="74"/>
         <source>Subscribe error: %1</source>
         <translation>訂閱錯誤: %1</translation>
     </message>
@@ -574,29 +584,29 @@
         <translation>伺服器 %0</translation>
     </message>
     <message>
-        <location filename="../../modules/value-editor/externalformattersmanager.cpp" line="171"/>
-        <location filename="../../modules/value-editor/externalformattersmanager.cpp" line="207"/>
-        <location filename="../../modules/value-editor/externalformattersmanager.cpp" line="236"/>
+        <location filename="../../modules/value-editor/externalformattersmanager.cpp" line="184"/>
+        <location filename="../../modules/value-editor/externalformattersmanager.cpp" line="219"/>
+        <location filename="../../modules/value-editor/externalformattersmanager.cpp" line="248"/>
         <source>Can&apos;t find formatter with name: %1</source>
         <translation>找不到格式化工具: %1</translation>
     </message>
     <message>
-        <location filename="../../modules/value-editor/externalformattersmanager.cpp" line="177"/>
+        <location filename="../../modules/value-editor/externalformattersmanager.cpp" line="190"/>
         <source>Invalid callback</source>
         <translation>無效回調</translation>
     </message>
     <message>
-        <location filename="../../modules/value-editor/externalformattersmanager.cpp" line="191"/>
+        <location filename="../../modules/value-editor/externalformattersmanager.cpp" line="204"/>
         <source>Cannot decode value using %1 formatter. </source>
         <translation>無法使用格式化工具解碼值 %1</translation>
     </message>
     <message>
-        <location filename="../../modules/value-editor/externalformattersmanager.cpp" line="221"/>
+        <location filename="../../modules/value-editor/externalformattersmanager.cpp" line="233"/>
         <source>Cannot validate value using %1 formatter.</source>
         <translation>無法使用格式化工具驗證值 %1</translation>
     </message>
     <message>
-        <location filename="../../modules/value-editor/externalformattersmanager.cpp" line="250"/>
+        <location filename="../../modules/value-editor/externalformattersmanager.cpp" line="262"/>
         <source>Cannot encode value using %1 formatter. </source>
         <translation>無法使用格式化工具編碼值 %1</translation>
     </message>
@@ -640,12 +650,12 @@
         <translation type="vanished">無法重整鍵值</translation>
     </message>
     <message>
-        <location filename="../../modules/value-editor/valueviewmodel.cpp" line="148"/>
+        <location filename="../../modules/value-editor/valueviewmodel.cpp" line="164"/>
         <source>Cannot reload key value: %1</source>
         <translation>無法重新載入鍵值: %1</translation>
     </message>
     <message>
-        <location filename="../../modules/value-editor/valueviewmodel.cpp" line="200"/>
+        <location filename="../../modules/value-editor/valueviewmodel.cpp" line="216"/>
         <source>Cannot load key value: %1</source>
         <translation>無法載入鍵值: %1</translation>
     </message>
@@ -747,9 +757,8 @@
         <translation>Redis 伺服器位址</translation>
     </message>
     <message>
-        <location filename="../../qml/ConnectionSettignsDialog.qml" line="200"/>
         <source>Auth:</source>
-        <translation>密碼:</translation>
+        <translation type="vanished">密碼:</translation>
     </message>
     <message>
         <location filename="../../qml/ConnectionSettignsDialog.qml" line="206"/>
@@ -874,7 +883,7 @@
     <message>
         <location filename="../../qml/ConnectionSettignsDialog.qml" line="193"/>
         <source>For better network performance please use 127.0.0.1</source>
-        <translation type="unfinished"></translation>
+        <translation>使用 127.0.0.1 以提高網路性能</translation>
     </message>
     <message>
         <location filename="../../qml/ConnectionSettignsDialog.qml" line="211"/>
@@ -964,7 +973,7 @@
         <translation type="vanished">忽略所有 SSL/TLS 錯誤</translation>
     </message>
     <message>
-        <location filename="../../qml/ConnectionSettignsDialog.qml" line="567"/>
+        <location filename="../../qml/ConnectionSettignsDialog.qml" line="564"/>
         <source>Invalid settings detected!</source>
         <translation>檢測到無效的設定！</translation>
     </message>
@@ -974,20 +983,21 @@
         <translation>測試連線</translation>
     </message>
     <message>
-        <location filename="../../qml/ConnectionSettignsDialog.qml" line="575"/>
-        <location filename="../../qml/GlobalSettings.qml" line="228"/>
-        <location filename="../../qml/QuickStartDialog.qml" line="61"/>
+        <location filename="../../qml/ConnectionSettignsDialog.qml" line="572"/>
+        <location filename="../../qml/GlobalSettings.qml" line="244"/>
+        <location filename="../../qml/QuickStartDialog.qml" line="62"/>
         <location filename="../../qml/common/SaveToFileButton.qml" line="108"/>
-        <location filename="../../qml/value-editor/editors/MultilineEditor.qml" line="590"/>
+        <location filename="../../qml/value-editor/editors/MultilineEditor.qml" line="606"/>
         <source>OK</source>
         <translation>確定</translation>
     </message>
     <message>
-        <location filename="../../qml/ConnectionSettignsDialog.qml" line="587"/>
+        <location filename="../../qml/ConnectionSettignsDialog.qml" line="584"/>
         <location filename="../../qml/common/BetterDialog.qml" line="44"/>
         <location filename="../../qml/connections-tree/ConnectionGroupDialog.qml" line="62"/>
-        <location filename="../../qml/value-editor/AddKeyDialog.qml" line="103"/>
-        <location filename="../../qml/value-editor/ValueTabs.qml" line="636"/>
+        <location filename="../../qml/value-editor/AddKeyDialog.qml" line="105"/>
+        <location filename="../../qml/value-editor/ValueTabs.qml" line="254"/>
+        <location filename="../../qml/value-editor/ValueTabs.qml" line="675"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -1031,43 +1041,53 @@
         <translation>鍵值編輯器的字體大小</translation>
     </message>
     <message>
-        <location filename="../../qml/GlobalSettings.qml" line="119"/>
+        <location filename="../../qml/GlobalSettings.qml" line="121"/>
+        <source>Maximum Formatted Value Size</source>
+        <translation>最大格式化長度</translation>
+    </message>
+    <message>
+        <location filename="../../qml/GlobalSettings.qml" line="122"/>
+        <source>Size in bytes</source>
+        <translation>長度（位元組）</translation>
+    </message>
+    <message>
+        <location filename="../../qml/GlobalSettings.qml" line="132"/>
         <source>Use system proxy settings</source>
         <translation>使用系統的代理設定</translation>
     </message>
     <message>
-        <location filename="../../qml/GlobalSettings.qml" line="125"/>
+        <location filename="../../qml/GlobalSettings.qml" line="138"/>
         <source>Connections Tree</source>
         <translation>連線列表</translation>
     </message>
     <message>
-        <location filename="../../qml/GlobalSettings.qml" line="136"/>
+        <location filename="../../qml/GlobalSettings.qml" line="149"/>
         <source>Reopen namespaces on reload</source>
         <translation>重新載入時重新打開命名空間</translation>
     </message>
     <message>
-        <location filename="../../qml/GlobalSettings.qml" line="137"/>
-        <location filename="../../qml/GlobalSettings.qml" line="148"/>
+        <location filename="../../qml/GlobalSettings.qml" line="150"/>
+        <location filename="../../qml/GlobalSettings.qml" line="161"/>
         <source>(Disable to improve treeview performance)</source>
         <translation>(停用樹狀檢視以提高性能)</translation>
     </message>
     <message>
-        <location filename="../../qml/GlobalSettings.qml" line="147"/>
+        <location filename="../../qml/GlobalSettings.qml" line="160"/>
         <source>Enable key sorting in tree</source>
         <translation>打開樹狀檢視鍵名排序功能</translation>
     </message>
     <message>
-        <location filename="../../qml/GlobalSettings.qml" line="160"/>
+        <location filename="../../qml/GlobalSettings.qml" line="173"/>
         <source>Live update maximum allowed keys</source>
         <translation>同步更新最大允許鍵數量</translation>
     </message>
     <message>
-        <location filename="../../qml/GlobalSettings.qml" line="173"/>
+        <location filename="../../qml/GlobalSettings.qml" line="186"/>
         <source>Live update interval (in seconds)</source>
         <translation>同步更新時間 (秒)</translation>
     </message>
     <message>
-        <location filename="../../qml/GlobalSettings.qml" line="179"/>
+        <location filename="../../qml/GlobalSettings.qml" line="192"/>
         <source>External Value View Formatters</source>
         <translation>外部的值格式化工具</translation>
     </message>
@@ -1076,59 +1096,60 @@
         <translation type="vanished">自訂的值格式化工具</translation>
     </message>
     <message>
-        <location filename="../../qml/GlobalSettings.qml" line="184"/>
+        <location filename="../../qml/GlobalSettings.qml" line="197"/>
         <source>Formatters path: %0</source>
         <translation>格式化工具路徑: %0</translation>
     </message>
     <message>
-        <location filename="../../qml/GlobalSettings.qml" line="198"/>
+        <location filename="../../qml/GlobalSettings.qml" line="213"/>
         <source>Name</source>
         <translation>名稱</translation>
     </message>
     <message>
-        <location filename="../../qml/GlobalSettings.qml" line="203"/>
+        <location filename="../../qml/GlobalSettings.qml" line="218"/>
         <source>Version</source>
         <translation>版本</translation>
     </message>
     <message>
-        <location filename="../../qml/QuickStartDialog.qml" line="12"/>
-        <source>Explore Redis Desktop Manager</source>
-        <translation>探索 Redis Desktop Manager</translation>
-    </message>
-    <message>
-        <location filename="../../qml/QuickStartDialog.qml" line="44"/>
-        <source>Before using Redis Desktop Manager (RDM) take a look on the %1</source>
-        <translation>在使用 Redis Desktop Manager (RDM) 之前，您可以先看看 %1</translation>
+        <location filename="../../qml/QuickStartDialog.qml" line="11"/>
+        <source>Explore RDM</source>
+        <translation>探索 RDM</translation>
     </message>
     <message>
         <location filename="../../qml/QuickStartDialog.qml" line="45"/>
+        <source>Before using RDM take a look on the %1</source>
+        <translation>在使用 RDM 之前，您可以先看看 %1</translation>
+    </message>
+    <message>
+        <location filename="../../qml/ConnectionSettignsDialog.qml" line="545"/>
+        <location filename="../../qml/QuickStartDialog.qml" line="46"/>
         <source>Quick Start Guide</source>
         <translation>快速入門指南</translation>
     </message>
     <message>
-        <location filename="../../qml/app.qml" line="110"/>
+        <location filename="../../qml/app.qml" line="112"/>
         <source>Successful connection to redis-server</source>
         <translation>成功連線到 Redis 伺服器</translation>
     </message>
     <message>
-        <location filename="../../qml/app.qml" line="113"/>
+        <location filename="../../qml/app.qml" line="115"/>
         <source>Can&apos;t connect to redis-server</source>
         <translation>無法連線到 Redis 伺服器</translation>
     </message>
     <message>
-        <location filename="../../qml/app.qml" line="245"/>
+        <location filename="../../qml/app.qml" line="247"/>
         <source>Add Group</source>
-        <translation type="unfinished"></translation>
+        <translation>新增分組</translation>
     </message>
     <message>
-        <location filename="../../qml/app.qml" line="259"/>
+        <location filename="../../qml/app.qml" line="261"/>
         <source>Regroup connections</source>
-        <translation type="unfinished"></translation>
+        <translation>重組連線</translation>
     </message>
     <message>
-        <location filename="../../qml/app.qml" line="281"/>
+        <location filename="../../qml/app.qml" line="283"/>
         <source>Exit Regroup Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>離開分組模式</translation>
     </message>
     <message>
         <source>Bulk Operations Manager</source>
@@ -1183,16 +1204,17 @@
         <translation type="vanished">確認要執行批次操作？</translation>
     </message>
     <message>
-        <source>Sign in with RedisDesktop.com account</source>
-        <translation type="vanished">以 RedisDesktop.com 的帳號登入</translation>
+        <source>Sign in with rdm.dev account</source>
+        <translation type="vanished">以 rdm.dev 的帳號登入</translation>
     </message>
     <message>
         <source>Email:</source>
         <translation type="vanished">Email:</translation>
     </message>
     <message>
+        <location filename="../../qml/ConnectionSettignsDialog.qml" line="200"/>
         <source>Password:</source>
-        <translation type="vanished">密碼:</translation>
+        <translation>密碼:</translation>
     </message>
     <message>
         <location filename="../../qml/common/PasswordInput.qml" line="20"/>
@@ -1364,7 +1386,7 @@
         <translation>參數</translation>
     </message>
     <message>
-        <location filename="../../qml/GlobalSettings.qml" line="213"/>
+        <location filename="../../qml/GlobalSettings.qml" line="228"/>
         <location filename="../../qml/console/RedisConsole.qml" line="209"/>
         <source>Description</source>
         <translation>描述</translation>
@@ -1412,37 +1434,37 @@
     </message>
     <message>
         <location filename="../../qml/server-info/ServerInfoTabs.qml" line="171"/>
-        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="212"/>
+        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="213"/>
         <source>Memory Usage</source>
         <translation>記憶體佔用</translation>
     </message>
     <message>
-        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="224"/>
+        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="225"/>
         <source>Mb</source>
         <translation>Mb</translation>
     </message>
     <message>
-        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="300"/>
-        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="408"/>
-        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="465"/>
+        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="301"/>
+        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="409"/>
+        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="466"/>
         <source>Auto Refresh</source>
         <translation>自動重整</translation>
     </message>
     <message>
-        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="334"/>
+        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="335"/>
         <source>Property</source>
         <translation>屬性</translation>
     </message>
     <message>
-        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="340"/>
-        <location filename="../../qml/value-editor/editors/MultilineEditor.qml" line="20"/>
+        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="341"/>
+        <location filename="../../qml/value-editor/editors/MultilineEditor.qml" line="21"/>
         <source>Value</source>
         <translation>值</translation>
     </message>
     <message>
-        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="552"/>
+        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="554"/>
         <source>Subscribe in Console</source>
-        <translation type="unfinished"></translation>
+        <translation>在控制台中訂閱</translation>
     </message>
     <message>
         <location filename="../../qml/server-info/ServerInfoTabs.qml" line="179"/>
@@ -1450,58 +1472,58 @@
         <translation>慢紀錄</translation>
     </message>
     <message>
-        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="187"/>
+        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="188"/>
         <source>Pub/Sub Channels</source>
         <translation>發布/訂閱 頻道</translation>
     </message>
     <message>
-        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="523"/>
+        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="524"/>
         <source>Enable</source>
         <translation>啟用</translation>
     </message>
     <message>
-        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="542"/>
+        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="543"/>
         <source>Channel Name</source>
         <translation>頻道名稱</translation>
     </message>
     <message>
-        <location filename="../../qml/GlobalSettings.qml" line="207"/>
-        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="423"/>
+        <location filename="../../qml/GlobalSettings.qml" line="222"/>
+        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="424"/>
         <source>Command</source>
         <translation>指令</translation>
     </message>
     <message>
-        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="440"/>
+        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="441"/>
         <source>Processed at</source>
         <translation>已處理於</translation>
     </message>
     <message>
-        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="446"/>
+        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="447"/>
         <source>Execution Time (μs)</source>
         <translation>執行時間 (微秒)</translation>
     </message>
     <message>
-        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="480"/>
+        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="481"/>
         <source>Client Address</source>
         <translation>客戶端位址</translation>
     </message>
     <message>
-        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="486"/>
+        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="487"/>
         <source>Age (sec)</source>
         <translation>連線時長 (秒)</translation>
     </message>
     <message>
-        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="492"/>
+        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="493"/>
         <source>Idle</source>
         <translation>閒置</translation>
     </message>
     <message>
-        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="498"/>
+        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="499"/>
         <source>Flags</source>
         <translation>旗標</translation>
     </message>
     <message>
-        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="504"/>
+        <location filename="../../qml/server-info/ServerInfoTabs.qml" line="505"/>
         <source>Current Database</source>
         <translation>當前資料庫</translation>
     </message>
@@ -1524,35 +1546,36 @@
     <message>
         <location filename="../../qml/common/BetterDialog.qml" line="39"/>
         <location filename="../../qml/connections-tree/ConnectionGroupDialog.qml" line="47"/>
-        <location filename="../../qml/value-editor/AddKeyDialog.qml" line="68"/>
-        <location filename="../../qml/value-editor/editors/MultilineEditor.qml" line="428"/>
+        <location filename="../../qml/value-editor/AddKeyDialog.qml" line="70"/>
+        <location filename="../../qml/value-editor/ValueTabs.qml" line="241"/>
+        <location filename="../../qml/value-editor/editors/MultilineEditor.qml" line="443"/>
         <source>Save</source>
         <translation>儲存</translation>
     </message>
     <message>
         <location filename="../../qml/connections-tree/ConnectionGroupDialog.qml" line="11"/>
         <source>Edit Connections Group</source>
-        <translation type="unfinished"></translation>
+        <translation>編輯連線的組別</translation>
     </message>
     <message>
         <location filename="../../qml/connections-tree/ConnectionGroupDialog.qml" line="11"/>
         <source>Add New Connections Group</source>
-        <translation type="unfinished"></translation>
+        <translation>新增連線組別</translation>
     </message>
     <message>
         <location filename="../../qml/connections-tree/ConnectionGroupDialog.qml" line="30"/>
         <source>Group Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>組別名稱:</translation>
     </message>
     <message>
         <location filename="../../qml/connections-tree/ConnectionGroupDialog.qml" line="71"/>
-        <location filename="../../qml/value-editor/AddKeyDialog.qml" line="114"/>
-        <location filename="../../qml/value-editor/editors/formatters/ValueFormatters.qml" line="195"/>
+        <location filename="../../qml/value-editor/AddKeyDialog.qml" line="116"/>
+        <location filename="../../qml/value-editor/editors/formatters/ValueFormatters.qml" line="222"/>
         <source>Error</source>
         <translation>錯誤</translation>
     </message>
     <message>
-        <location filename="../../qml/value-editor/Pagination.qml" line="11"/>
+        <location filename="../../qml/value-editor/Pagination.qml" line="12"/>
         <source>Page</source>
         <translation>頁</translation>
     </message>
@@ -1566,17 +1589,17 @@
         <translation>請輸入有效的值</translation>
     </message>
     <message>
-        <location filename="../../qml/value-editor/editors/MultilineEditor.qml" line="291"/>
+        <location filename="../../qml/value-editor/editors/MultilineEditor.qml" line="289"/>
         <source>Formatting error</source>
         <translation>格式化錯誤</translation>
     </message>
     <message>
-        <location filename="../../qml/value-editor/editors/MultilineEditor.qml" line="296"/>
+        <location filename="../../qml/value-editor/editors/MultilineEditor.qml" line="294"/>
         <source>Unknown formatter error (Empty response)</source>
         <translation>未知格式化錯誤 (沒有回應)</translation>
     </message>
     <message>
-        <location filename="../../qml/value-editor/editors/MultilineEditor.qml" line="323"/>
+        <location filename="../../qml/value-editor/editors/MultilineEditor.qml" line="321"/>
         <source>[Binary]</source>
         <translation>[二進位制內容]</translation>
     </message>
@@ -1586,32 +1609,32 @@
         <translation>[被壓縮的: </translation>
     </message>
     <message>
-        <location filename="../../qml/value-editor/editors/MultilineEditor.qml" line="393"/>
+        <location filename="../../qml/value-editor/editors/MultilineEditor.qml" line="409"/>
         <source>Copy to Clipboard</source>
         <translation>複製到剪貼簿</translation>
     </message>
     <message>
-        <location filename="../../qml/value-editor/editors/MultilineEditor.qml" line="429"/>
+        <location filename="../../qml/value-editor/editors/MultilineEditor.qml" line="444"/>
         <source>Save Changes</source>
         <translation>儲存變更</translation>
     </message>
     <message>
-        <location filename="../../qml/value-editor/editors/MultilineEditor.qml" line="586"/>
+        <location filename="../../qml/value-editor/editors/MultilineEditor.qml" line="602"/>
         <source>Binary value is too large to display</source>
         <translation>二進位制內容過長而無法顯示</translation>
     </message>
     <message>
-        <location filename="../../qml/value-editor/editors/MultilineEditor.qml" line="598"/>
+        <location filename="../../qml/value-editor/editors/MultilineEditor.qml" line="614"/>
         <source>Save value to file: </source>
         <translation>儲存值到檔案: </translation>
     </message>
     <message>
-        <location filename="../../qml/value-editor/editors/MultilineEditor.qml" line="327"/>
+        <location filename="../../qml/value-editor/editors/MultilineEditor.qml" line="330"/>
         <source>View as:</source>
         <translation>以...開啟:</translation>
     </message>
     <message>
-        <location filename="../../qml/value-editor/editors/MultilineEditor.qml" line="351"/>
+        <location filename="../../qml/value-editor/editors/MultilineEditor.qml" line="367"/>
         <source>Large value (&gt;150kB). Formatters are not available.</source>
         <translation>內容過大 (&gt;150kB) 無法格式化。</translation>
     </message>
@@ -1663,12 +1686,12 @@
     <message>
         <location filename="../../modules/bulk-operations/operations/copyoperation.cpp" line="119"/>
         <source>Source connection error</source>
-        <translation type="unfinished"></translation>
+        <translation>來源連線錯誤</translation>
     </message>
     <message>
         <location filename="../../modules/bulk-operations/operations/copyoperation.cpp" line="131"/>
         <source>Target connection error</source>
-        <translation type="unfinished"></translation>
+        <translation>目標連線錯誤</translation>
     </message>
     <message>
         <source>Cannot connect to source redis-server: %1</source>
@@ -1699,13 +1722,13 @@
         <translation>你的 Redis 伺服器不支援 &lt;a href=&apos;https://redis.io/commands/memory-usage&apos;&gt;&lt;b&gt;MEMORY&lt;/b&gt;&lt;/a&gt; 指令。</translation>
     </message>
     <message>
-        <location filename="../../modules/connections-tree/items/namespaceitem.cpp" line="120"/>
+        <location filename="../../modules/connections-tree/items/namespaceitem.cpp" line="131"/>
         <source>Key was added. Do you want to reload keys in selected namespace?</source>
         <translation>已新增鍵。你想要重新載入命名空間中的鍵嗎？</translation>
     </message>
     <message>
-        <source>Cannot login - %1. &lt;br/&gt; Please try again or contact  &lt;a href=&apos;mailto:support@redisdesktop.com&apos;&gt;support@redisdesktop.com&lt;/a&gt;</source>
-        <translation type="vanished">無法登入 - %1 。&lt;br/&gt; 請再試一次或是聯絡 &lt;a href=&apos;mailto:support@redisdesktop.com&apos;&gt;support@redisdesktop.com&lt;/a&gt;</translation>
+        <source>Cannot login - %1. &lt;br/&gt; Please try again or contact  &lt;a href=&apos;mailto:support@rdm.dev&apos;&gt;support@rdm.dev&lt;/a&gt;</source>
+        <translation type="vanished">無法登入 - %1 。&lt;br/&gt; 請再試一次或是聯絡 &lt;a href=&apos;mailto:support@rdm.dev&apos;&gt;support@rdm.dev&lt;/a&gt;</translation>
     </message>
     <message>
         <location filename="../../qml/common/FilePathInput.qml" line="26"/>
@@ -1740,17 +1763,17 @@
     <message>
         <location filename="../../qml/connections-tree/menu/server_group.qml" line="12"/>
         <source>Edit Connection Group</source>
-        <translation type="unfinished"></translation>
+        <translation>編輯連線組別</translation>
     </message>
     <message>
         <location filename="../../qml/connections-tree/menu/server_group.qml" line="16"/>
         <source>Delete Connection Group</source>
-        <translation type="unfinished"></translation>
+        <translation>刪除連線組別</translation>
     </message>
     <message>
         <location filename="../../modules/connections-tree/items/servergroup.cpp" line="58"/>
         <source>Do you really want to delete group &lt;b&gt;with all connections&lt;/b&gt;?</source>
-        <translation type="unfinished"></translation>
+        <translation>您真的要刪除組別&lt;b&gt;以及其中的連線&lt;/b&gt;嗎？</translation>
     </message>
 </context>
 <context>

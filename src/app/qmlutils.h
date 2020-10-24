@@ -10,7 +10,8 @@ class QmlUtils : public QObject
     Q_OBJECT
 public:    
     Q_INVOKABLE bool isBinaryString(const QVariant &value);
-    Q_INVOKABLE long binaryStringLength(const QVariant &value);
+    Q_INVOKABLE long binaryStringLength(const QVariant &value);    
+    Q_INVOKABLE QVariant b64toByteArray(const QVariant &value);
 
     Q_INVOKABLE unsigned isCompressed(const QVariant &value);
     Q_INVOKABLE QVariant decompress(const QVariant &value);
@@ -36,5 +37,6 @@ public:
     Q_INVOKABLE void deleteTextWrapper(QObject* w);
     Q_INVOKABLE QString escapeHtmlEntities(const QString& t);
     Q_INVOKABLE QString htmlToPlainText(const QString& html);
-    Q_INVOKABLE double getScreenScaleFactor();
+    Q_INVOKABLE double getScreenScaleFactor();    
+    Q_INVOKABLE bool isAppStoreBuild();
 };

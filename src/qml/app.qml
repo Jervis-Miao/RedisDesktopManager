@@ -20,7 +20,7 @@ ApplicationWindow {
     id: approot
     visible: true
     objectName: "rdm_qml_root"
-    title: "Redis Desktop Manager " + Qt.application.version
+    title: "RDM - GUI for Redis® " + Qt.application.version
     width: 1100
     height: 800
     minimumWidth: 1100
@@ -38,6 +38,7 @@ ApplicationWindow {
         Component.onCompleted: {
             loadEmbeddedFormatters();
             loadExternalFormatters();
+            updateRWFormatters();
         }
     }
 
@@ -72,6 +73,7 @@ ApplicationWindow {
         category: "app"
         property string valueEditorFont
         property string valueEditorFontSize
+        property int valueSizeLimit: 150000
     }
 
     SystemPalette {

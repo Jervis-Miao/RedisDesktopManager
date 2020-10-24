@@ -1,4 +1,4 @@
-import QtQuick 2.3
+import QtQuick 2.15
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.13
 import QtQuick.Controls 1.4 as LC
@@ -18,7 +18,7 @@ Dialog {
     contentItem: Rectangle {
         id: dialogRoot
         implicitWidth: 800
-        implicitHeight: PlatformUtils.isOSX()? 550 : 700
+        implicitHeight: PlatformUtils.isOSX() && qmlUtils.isAppStoreBuild()? 550 : 750
 
         color: sysPalette.base
 
@@ -109,6 +109,19 @@ Dialog {
                         onValueChanged: root.restartRequired = true
                     }
 
+                    IntOption {
+                        id: valueSizeLimit
+
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: 30
+
+                        min: 1
+                        max: 2000000
+                        value: 150000
+                        label: qsTranslate("RDM","Maximum Formatted Value Size")
+                        description: qsTranslate("RDM", "Size in bytes")
+                    }
+
                     BoolOption {
                         id: systemProxy
 
@@ -175,22 +188,24 @@ Dialog {
                     }
 
                     SettingsGroupTitle {
-                        visible: !PlatformUtils.isOSX()
+                        visible: !(PlatformUtils.isOSX() && qmlUtils.isAppStoreBuild())
                         text: qsTranslate("RDM","External Value View Formatters")
                     }
 
                     Text {
-                        visible: !PlatformUtils.isOSX()
+                        visible: !(PlatformUtils.isOSX() && qmlUtils.isAppStoreBuild())
                         text: formattersManager? qsTranslate("RDM","Formatters path: %0").arg(formattersManager.formattersPath()) : ""
                         font.pixelSize: 12
                         color: "grey"
                     }
 
                     LC.TableView {
-                        visible: !PlatformUtils.isOSX()
+                        id: formattersTable
+                        visible: !(PlatformUtils.isOSX() && qmlUtils.isAppStoreBuild())
 
                         Layout.fillWidth: true
                         Layout.fillHeight: true
+                        Layout.preferredHeight: 100
                         verticalScrollBarPolicy: Qt.ScrollBarAlwaysOn
 
                         LC.TableViewColumn {
@@ -217,6 +232,7 @@ Dialog {
                     }
 
                     Item {
+                        visible: !formattersTable.visible
                         Layout.fillHeight: true
                     }
 
@@ -258,6 +274,7 @@ Dialog {
         property alias appFontSize: appFontSize.value
         property alias valueEditorFont: valueEditorFont.value
         property alias valueEditorFontSize: valueEditorFontSize.value
+        property alias valueSizeLimit: valueSizeLimit.value
         property alias locale: appLang.value
         property alias useSystemProxy: systemProxy.value
     }
